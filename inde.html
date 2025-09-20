@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Manager with AI Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Task Manager</h1>
+      <nav>
+        <button id="profileBtn" aria-label="Open profile and theme settings">⚙️ Profile</button>
+        <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Centered Add Task Section -->
+      <section class="center-add-task" aria-labelledby="addTaskLabel">
+        <h2 id="addTaskLabel" class="visually-hidden">Add New Task</h2>
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Add your new task here..."
+          aria-label="New task input"
+          autocomplete="off"
+        />
+        <select id="prioritySelect" aria-label="Select task priority">
+          <option value="medium" selected>Medium Priority</option>
+          <option value="high">High Priority</option>
+          <option value="low">Low Priority</option>
+        </select>
+        <button id="addTaskBtn">Add Task</button>
+      </section>
+
+      <!-- Filters and Clear Completed -->
+      <section class="filter-section" role="group" aria-label="Task filter buttons">
+        <button data-filter="all" class="filter-btn active">All</button>
+        <button data-filter="active" class="filter-btn">Active</button>
+        <button data-filter="completed" class="filter-btn">Completed</button>
+        <button id="clearCompleted">Clear Completed</button>
+      </section>
+
+      <!-- Search -->
+      <section class="search-section">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search tasks..."
+          aria-label="Search tasks"
+          autocomplete="off"
+        />
+      </section>
+
+      <!-- Task List, draggable -->
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+      <!-- AI Chatbot Section -->
+      <section id="taskAIChatbot" aria-label="Task AI Chatbot">
+        <h2>Your Tasks AI Chatbot</h2>
+        <div id="chatDisplay" class="chat-display" role="log" aria-live="polite"></div>
+        <form id="chatForm" aria-label="Chat input form">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Ask your Tasks AI..."
+            autocomplete="off"
+            aria-label="Chat input"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <small>Task Manager Web App — Developed for WebDev Selection Challenge</small>
+    </footer>
+  </div>
+
+  <!-- Profile and Theme Modal -->
+  <div
+    id="profileModal"
+    class="modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="profileModalTitle"
+  >
+    <div class="modal-content">
+      <h3 id="profileModalTitle">Profile & Theme Settings</h3>
+      <label for="themeSelect">Choose theme:</label>
+      <select id="themeSelect" aria-label="Select Website Theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="solarized">Solarized</option>
+        <option value="highContrast">High Contrast</option>
+      </select>
+      <button id="modalCloseBtn">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
